@@ -1,0 +1,115 @@
+/* Mi código CSS */
+
+body {
+  padding-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+}
+
+/*****************************************************************
+
+    HEADER
+
+/*****************************************************************/
+
+#header {
+  background-color: #222;
+  border-bottom: 4px solid #ff8f00;
+}
+
+#header-logo {
+  width: auto;
+  height: 20px;
+}
+
+/*****************************************************************
+
+    HOME
+
+/*****************************************************************/
+
+#home {
+  flex: 1;
+}
+
+#home-intro {
+  border-bottom: 4px solid #ff8f00;
+  height: 36vw;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 30px;
+}
+
+.carouselImage {
+max-height: 444px;
+
+}
+
+#home h1 span {
+  font-weight: 300;
+}
+
+#home .card h4 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+#home hr {
+  margin: 1.9rem 0 2.5rem;
+}
+
+@media (max-width: 767px) {
+  #home-intro {
+    height: 30vh;
+  }
+  #home h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/*****************************************************************
+
+    FOOTER
+
+/*****************************************************************/
+
+#footer {
+  border-top: 4px solid #ff8f00;
+  background-color: #222;
+  margin-top: 40px;
+  color: #eeeeee;
+  padding: 80px 0;
+  font-size: 1rem;
+}
+
+#footer-logo {
+  width: auto;
+  height: 20px;
+  margin-bottom: 15px;
+}
+
+#footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+#footer ul li {
+  list-style: none;
+  margin-bottom: 6px;
+}
+
+#footer ul li a,
+#footer ul li a:visited {
+  color: #eeeeee;
+  text-decoration: none;
+}
