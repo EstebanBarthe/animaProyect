@@ -113,3 +113,13 @@ max-height: 444px;
   color: #eeeeee;
   text-decoration: none;
 }
+.mycard .card-body {
+  padding-left: 20px; /* o cualquier otro valor que desees */
+}
+.object-fit-cover {
+  object-fit: cover;
+}
+.custom-padding {
+  padding-top: 20px;  /* Ajusta como necesites para mover el texto hacia abajo */
+  padding-left: 20px; /* Ajusta como necesites para mover el texto hacia la derecha */
+}
