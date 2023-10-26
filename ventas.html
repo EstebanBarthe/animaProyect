@@ -13,8 +13,7 @@
       crossorigin="anonymous" />
 
     <!-- CSS Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -78,7 +77,12 @@
 
     <div class="container mt-5">
       <div class="row">
-        <div class="col-md-3 form-section">
+        <h1>Ventas</h1>
+
+        <hr />
+        <div class="col-md-3 bg-light rounded form-section">
+          <h4 class="mt-2">Filtro</h4>
+          <hr />
           <div class="mb-3">
             <label for="anio" class="form-label">Año</label>
             <select class="form-select" id="anio">
@@ -111,91 +115,148 @@
             <button class="btn btn-primary w-100">Filtrar</button>
           </div>
         </div>
-        
 
-        
-              <!-- Columna de la derecha para todas las tarjetas -->
-              <div class="col-9">
-                <div class="card mycard mb-4">
-                  <div class="row no-gutters">
-                      <div class="col-xl-4 col-md-12">
-                          <img src="img/cars_sales/audi_q5_2017.jpg" class="card-img h-100" alt="Audi Q5" />
-                      </div>
-                      <div class="col-8">
-                          <div class="card-body fs-6 custom-padding"> <!-- Añade la clase 'custom-padding' -->
-                              <h5 class="card-title">Audi Q5 <small class="text-muted">2017 | USD 92.000</small></h5>
-                              <p class="card-text">
-                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nulla unde dolor. Esse repellendus officia harum reprehenderit.
-                              </p>
-                              <button id="btn1" class="btn btn-primary">Botón 1</button>
-                              <button id="btn2" class="btn btn-secondary">Botón 2</button>
-                              <button id="btn3" class="btn btn-tertiary">Botón 3</button>
-                          </div>
-                      </div>
-                  </div>
+        <!-- Columna de la derecha para todas las tarjetas -->
+        <div class="col-9">
+          <div class="card mycard mb-4">
+            <div class="row no-gutters">
+              <div class="col-xl-4 col-md-12">
+                <img
+                  src="img/cars_sales/audi_q5_2017.jpg"
+                  class="card-img h-100"
+                  alt="Audi Q5" />
               </div>
-              
-                  <div class="card mb-4 mycard ">
-                    <div class="row no-glutters ">
-                        <div class="col-xl-4 col-md-12">
-                            <img src="img/cars_sales/audi_q5_2017.jpg" class="card-img h-100" alt="Audi Q5" />
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Audi Q7<small class="text-muted">2017 | USD 92.000</small></h5>
-                                
-                                <p class="card-text">
-                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nulla unde dolor. Esse repellendus officia harum reprehenderit.
-                                </p>
-                                
-                                <button id="btn1" class="btn btn-primary">Botón 1</button>
-                                <button id="btn2" class="btn btn-secondary">Botón 2</button>
-                                <button id="btn3" class="btn btn-tertiary">Botón 3</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mycard mb-4">
-                  <div class="row">
-                      <div class="col-xl-4 col-md-12">
-                          <img src="img/cars_sales/audi_q5_2017.jpg" class="card-img h-100" alt="Audi Q5" />
-                      </div>
-                      <div class="col-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Audi Q5 <small class="text-muted">2017 | USD 92.000</small></h5>
-                            <p class="card-text">
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nulla unde dolor. Esse repellendus officia harum reprehenderit.
-                            </p>
-                            <button id="btn1" class="btn btn-primary">Botón 1</button>
-                            <button id="btn2" class="btn btn-secondary">Botón 2</button>
-                            <button id="btn3" class="btn btn-tertiary">Botón 3</button>
-                        </div>
-                      </div>
+              <div class="col-8">
+                <div class="card-body fs-6 custom-padding">
+                  <div
+                    class="d-flex justify-content-between align-items-center">
+                    <!-- Añadido este div con clases de flexbox -->
+                    <h5 class="card-title mb-2">Audi Q5</h5>
+                    <!-- Eliminado el small de aquí -->
+                    <small class="text-muted">2017 | USD 92.000</small>
+                    <!-- Movido el small fuera del h5 -->
                   </div>
-              </div>
-              <div class="card mycard mb-4">
-                <div class="row no-gutters">
-                    <div class="col-xl-4 col-md-12">
-                        <img src="img/cars_sales/audi_q5_2017.jpg" class="card-img h-100" alt="Audi Q5" />
-                    </div>
-                    <div class="col-8">
-                        <div class="card-body">
-                        <h5 class="card-title">Audi Q5 <small class="text-muted">2017 | USD 92.000</small></h5>
-                        <p class="card-text">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nulla unde dolor. Esse repellendus officia harum reprehenderit.
-                        </p>
-                        <button id="btn1" class="btn btn-primary">Botón 1</button>
-                        <button id="btn2" class="btn btn-secondary">Botón 2</button>
-                        <button id="btn3" class="btn btn-tertiary">Botón 3</button>
-                    </div>
-                    </div>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illum nulla unde dolor. Esse repellendus officia harum
+                    reprehenderit.
+                  </p>
+                  <button id="btn1" class="btn btn-success">Comprar</button>
+                  <button id="btn2" class="btn btn-light border-dark">
+                    Más información
+                  </button>
+                  <button id="btn3" class="btn btn-light border-dark">
+                    Compartir
+                  </button>
                 </div>
+              </div>
             </div>
-              </div>
-              
+          </div>
 
+          <div class="card mb-4 mycard">
+            <div class="row no-glutters">
+              <div class="col-xl-4 col-md-12">
+                <img
+                  src="img/cars_sales/audi_q7_2017.jpg"
+                  class="card-img h-100"
+                  alt="Audi Q7" />
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <div
+                    class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-2">Audi Q7</h5>
+                    <small class="text-muted">2017 | USD 110.000</small>
+                  </div>
+
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illum nulla unde dolor. Esse repellendus officia harum
+                    reprehenderit.
+                  </p>
+
+                  <button id="btn1" class="btn btn-success">Comprar</button>
+                  <button id="btn2" class="btn btn-light border-dark">
+                    Más información
+                  </button>
+                  <button id="btn3" class="btn btn-light border-dark">
+                    Compartir
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mycard mb-4 mx-auto">
+            <div class="row">
+              <div class="col-xl-4 col-md-12">
+                <img
+                  src="img/cars_sales/audi_a6_quattro_2016.jpg"
+                  class="card-img h-100"
+                  alt="Audi Q5" />
+              </div>
+              <div class="col-8">
+                <div class="card-body text-xs-center">
+                  <div
+                    class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-2">Audi A6 Quattro</h5>
+                    <small class="text-muted">2016 | USD 98.000</small>
+                  </div>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illum nulla unde dolor. Esse repellendus officia harum
+                    reprehenderit.
+                  </p>
+                  <button id="btn1" class="btn btn-success">Comprar</button>
+                  <button id="btn2" class="btn btn-light border-dark">
+                    Más información
+                  </button>
+                  <button id="btn3" class="btn btn-light border-dark">
+                    Compartir
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mycard mb-4">
+            <div class="row no-gutters">
+              <div class="col-xl-4 col-md-12">
+                <img
+                  src="img/cars_sales/audi_r8_2016.jpg"
+                  class="card-img h-100"
+                  alt="Audi Q5" />
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <div
+                    class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-2">Audi R8</h5>
+                    <small class="text-muted">2016 | USD 120.000</small>
+                  </div>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illum nulla unde dolor. Esse repellendus officia harum
+                    reprehenderit.
+                  </p>
+                  <button id="btn1" class="btn btn-success">Comprar</button>
+                  <button id="btn2" class="btn btn-light border-dark">
+                    Más información
+                  </button>
+                  <button id="btn3" class="btn btn-light border-dark">
+                    Compartir
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
     <div id="footer">
       <div class="container">
         <div class="row">
