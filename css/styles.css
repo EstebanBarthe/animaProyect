@@ -124,4 +124,18 @@ max-height: 444px;
     justify-content: center;
     text-align: center;
   }
+  .container-1 {
+    margin-top: 20vw;
+  }
+  .carousel-inner img {
+    max-height: 400px;  /* Cambia este valor al que mejor te convenga */
+    width: auto;
+    margin: 0 auto;
+    display: block;
+  }
  }
+
+
+
+
+
