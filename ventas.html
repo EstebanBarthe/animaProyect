@@ -81,7 +81,6 @@
 
         <hr />
         <div class="col-md-3 bg-light rounded form-section">
-          <div class="bg-light">
           <h4 class="mt-2">Filtro</h4>
           <hr />
           <div class="mb-3">
@@ -116,7 +115,6 @@
             <button class="btn btn-primary w-100">Filtrar</button>
           </div>
         </div>
-      </div>
 
         <!-- Columna de la derecha para todas las tarjetas -->
         <div class="col-xl-9">
@@ -132,17 +130,18 @@
                 <div class="card-body fs-6 custom-padding">
                   <div
                     class="d-flex justify-content-between align-items-center">
+                    <!-- Añadido este div con clases de flexbox -->
                     <h5 class="card-title mb-2">Audi Q5</h5>
+                    <!-- Eliminado el small de aquí -->
                     <small class="text-muted">2017 | USD 92.000</small>
+                    <!-- Movido el small fuera del h5 -->
                   </div>
-                  
                   <p class="card-text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Illum nulla unde dolor. Esse repellendus officia harum
                     reprehenderit.
                   </p>
-                </div>
                   <button id="btn1" class="btn btn-success">Comprar</button>
                   <button id="btn2" class="btn btn-light border-dark">
                     Más información
