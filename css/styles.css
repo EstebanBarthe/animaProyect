@@ -128,10 +128,9 @@ max-height: 444px;
     margin-top: 20vw;
   }
   .carousel-inner img {
-    max-height: 400px;  /* Cambia este valor al que mejor te convenga */
-    width: auto;
-    margin: 0 auto;
-    display: block;
+    max-height: 100vw;  /* Cambia este valor al que mejor te convenga */
+    max-width: 100vw;
+
   }
  }
 
