@@ -1,13 +1,16 @@
 // Función para cargar años en el select
 function cargarAnios() {
   const anioSelect = document.getElementById("anio");
-  for (let i = 2023; i >= 1900; i++) {
+  for (let i = 1900; i <= 2023; i++) {
     const option = document.createElement("option");
     option.value = i;
     option.textContent = i;
     anioSelect.appendChild(option);
+    
   }
 }
+
+cargarAnios();
 
 function cargarMarcas() {
   fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
