@@ -1,85 +1,106 @@
-document.addEventListener("DOMContentLoaded", function() {
-    populateYearSelect();
-    populateStateSelect();
-    fetchCars();
-    fetchBrands();
-});
-
-function populateYearSelect() {
-    const yearSelect = document.getElementById("anio");
-    for (let i = 2023; i >= 1900; i--) {
-        const option = document.createElement("option");
-        option.value = i;
-        option.textContent = i;
-        yearSelect.appendChild(option);
+// Función para cargar años en el select
+function cargarAnios() {
+    const anioSelect = document.getElementById('anio');
+    for (let i = 2023; i >= 1900; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = i;
+      anioSelect.appendChild(option);
     }
-}
-
-function populateStateSelect() {
-    const stateSelect = document.getElementById("estado");
-    const states = ["Nuevo", "Usado"];
-    states.forEach(state => {
-        const option = document.createElement("option");
-        option.value = state;
-        option.textContent = state;
-        stateSelect.appendChild(option);
-    });
-}
-
-function fetchCars(year, brand, model, state) {
-    fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
-        .then(response => response.json())
-        .then(data => {
-            if (year || brand || model || state) {
-                data = data.filter(car => 
-                    (!year || car.year.toString() === year) &&
-                    (!brand || car.brand === brand) &&
-                    (!model || car.model === model) &&
-                    (!state || car.state === state)
-                );
-            }
-            displayCars(data);
+  }
+  
+  function cargarMarcas() {
+    fetch('https://ha-front-api-proyecto-final.vercel.app/brands')
+      .then(response => response.json())
+      .then(data => {
+        const marcaSelect = document.getElementById('marca');
+        data.forEach(marca => {
+          const option = document.createElement('option');
+          option.value = marca;
+          option.textContent = marca;
+          marcaSelect.appendChild(option);
         });
-}
-
-function fetchBrands() {
-    fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
-        .then(response => response.json())
-        .then(data => {
-            const brandSelect = document.getElementById("marca");
-            data.forEach(brand => {
-                const option = document.createElement("option");
-                option.value = brand;
-                option.textContent = brand;
-                brandSelect.appendChild(option);
-            });
+      });
+  }
+  
+  function cargarModelos(marca) {
+    fetch(`https://ha-front-api-proyecto-final.vercel.app/models?brand=${marca}`)
+      .then(response => response.json())
+      .then(data => {
+        const modeloSelect = document.getElementById('modelo');
+        modeloSelect.innerHTML = '<option>Seleccionar...</option>';
+        data.forEach(modelo => {
+          const option = document.createElement('option');
+          option.value = modelo;
+          option.textContent = modelo;
+          modeloSelect.appendChild(option);
         });
-}
-
-document.getElementById("marca").addEventListener("change", function() {
-    const brand = this.value;
-    fetch(`https://ha-front-api-proyecto-final.vercel.app/models?brand=${brand}`)
-        .then(response => response.json())
-        .then(data => {
-            const modelSelect = document.getElementById("modelo");
-            modelSelect.innerHTML = "<option>Seleccionar...</option>"; 
-            data.forEach(model => {
-                const option = document.createElement("option");
-                option.value = model;
-                option.textContent = model;
-                modelSelect.appendChild(option);
-            });
-        });
-});
-
-document.querySelector(".btn-primary").addEventListener("click", function() {
-    const year = document.getElementById("anio").value;
-    const brand = document.getElementById("marca").value;
-    const model = document.getElementById("modelo").value;
-    const state = document.getElementById("estado").value;
-    fetchCars(year, brand, model, state);
-});
-
-function formatPrice(price) {
-    return new Intl.NumberFormat().format(price);
-}
+      });
+  }
+  
+  // Función para filtrar autos basados en los criterios seleccionados
+  function filtrarAutos() {
+    const anio = document.getElementById('anio').value;
+    const marca = document.getElementById('marca').value;
+    const modelo = document.getElementById('modelo').value;
+    const estado = document.getElementById('estado').value; // Capturar el estado
+  
+    fetch(`https://ha-front-api-proyecto-final.vercel.app/cars?year=${anio}&brand=${marca}&model=${modelo}&estado=${estado}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.length === 0) {
+          alert('No hay autos que cumplan con las condiciones de filtrado.');
+        } else {
+          mostrarAutos(data);
+        }
+      });
+  }
+  
+  function mostrarAutos(autos) {
+    const contenedorAutos = document.querySelector('.col-xl-9');
+    contenedorAutos.innerHTML = ''; 
+  
+    autos.forEach(auto => {
+        const card = document.createElement('div');
+        card.className = 'card mycard mb-4';
+    
+        const cardContent = `
+          <div class="row no-gutters">
+            <div class="col-xl-4 col-md-12">
+              <img src="${auto.image}" class="card-img h-100" alt="${auto.model}" />
+            </div>
+            <div class="col-xl-8">
+              <div class="card-body fs-6 custom-padding">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5 class="card-title mb-2">${auto.brand} ${auto.model}</h5>
+                  <small class="text-muted">${auto.year} | ${auto.estado} | USD ${auto.price}</small>
+                </div>
+                <p class="card-text">${auto.description}</p>
+                <button class="btn btn-success comprar">Comprar</button>
+                <button class="btn btn-light border-dark info">Más información</button>
+                <button class="btn btn-light border-dark compartir">Compartir</button>
+              </div>
+            </div>
+          </div>
+        `;
+    
+        card.innerHTML = cardContent;
+        contenedorAutos.appendChild(card);
+      })
+     };
+    ;
+  
+  // Event listeners
+  document.getElementById('marca').addEventListener('change', function() {
+    cargarModelos(this.value);
+  });
+  
+  document.querySelector('.btn-primary').addEventListener('click', function(event) {
+    event.preventDefault();
+    filtrarAutos();
+  });
+  
+  // Llamadas iniciales
+  cargarAnios();
+  cargarMarcas();
+  
