@@ -1,5 +1,11 @@
-// ventas.js
 document.addEventListener("DOMContentLoaded", function() {
+    populateYearSelect();
+    populateStateSelect();
+    fetchCars();
+    fetchBrands();
+});
+
+function populateYearSelect() {
     const yearSelect = document.getElementById("anio");
     for (let i = 2023; i >= 1900; i--) {
         const option = document.createElement("option");
@@ -7,17 +13,35 @@ document.addEventListener("DOMContentLoaded", function() {
         option.textContent = i;
         yearSelect.appendChild(option);
     }
-});
-// ventas.js
-function fetchCars() {
+}
+
+function populateStateSelect() {
+    const stateSelect = document.getElementById("estado");
+    const states = ["Nuevo", "Usado"];
+    states.forEach(state => {
+        const option = document.createElement("option");
+        option.value = state;
+        option.textContent = state;
+        stateSelect.appendChild(option);
+    });
+}
+
+function fetchCars(year, brand, model, state) {
     fetch("https://ha-front-api-proyecto-final.vercel.app/cars")
         .then(response => response.json())
         .then(data => {
-            // Aquí puedes procesar y mostrar los datos de los autos
-            console.log(data);
+            if (year || brand || model || state) {
+                data = data.filter(car => 
+                    (!year || car.year.toString() === year) &&
+                    (!brand || car.brand === brand) &&
+                    (!model || car.model === model) &&
+                    (!state || car.state === state)
+                );
+            }
+            displayCars(data);
         });
 }
-// ventas.js
+
 function fetchBrands() {
     fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
         .then(response => response.json())
@@ -31,28 +55,14 @@ function fetchBrands() {
             });
         });
 }
-// ventas.js
-function fetchBrands() {
-    fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
-        .then(response => response.json())
-        .then(data => {
-            const brandSelect = document.getElementById("marca");
-            data.forEach(brand => {
-                const option = document.createElement("option");
-                option.value = brand;
-                option.textContent = brand;
-                brandSelect.appendChild(option);
-            });
-        });
-}
-// ventas.js
+
 document.getElementById("marca").addEventListener("change", function() {
     const brand = this.value;
     fetch(`https://ha-front-api-proyecto-final.vercel.app/models?brand=${brand}`)
         .then(response => response.json())
         .then(data => {
             const modelSelect = document.getElementById("modelo");
-            modelSelect.innerHTML = ""; // Limpiar opciones anteriores
+            modelSelect.innerHTML = "<option>Seleccionar...</option>"; 
             data.forEach(model => {
                 const option = document.createElement("option");
                 option.value = model;
@@ -61,25 +71,15 @@ document.getElementById("marca").addEventListener("change", function() {
             });
         });
 });
-// ventas.js
+
 document.querySelector(".btn-primary").addEventListener("click", function() {
     const year = document.getElementById("anio").value;
     const brand = document.getElementById("marca").value;
     const model = document.getElementById("modelo").value;
-    fetch(`https://ha-front-api-proyecto-final.vercel.app/cars?year=${year}&brand=${brand}&model=${model}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length === 0) {
-                // Mostrar mensaje de alerta
-                alert("No se encontraron autos con esas especificaciones.");
-            } else {
-                // Aquí puedes procesar y mostrar los autos filtrados
-                console.log(data);
-            }
-        });
+    const state = document.getElementById("estado").value;
+    fetchCars(year, brand, model, state);
 });
-// ventas.js
+
 function formatPrice(price) {
     return new Intl.NumberFormat().format(price);
 }
-
