@@ -1,5 +1,6 @@
 // Función para cargar años en el select
 function cargarAnios() {
+  console.log("cargar anios")
   const anioSelect = document.getElementById("anio");
   for (let i = 1900; i <= 2023; i++) {
     const option = document.createElement("option");
@@ -13,6 +14,7 @@ function cargarAnios() {
 cargarAnios();
 
 function cargarMarcas() {
+  console.log("cargar marcas")
   fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
     .then((response) => response.json())
     .then((data) => {
@@ -27,6 +29,7 @@ function cargarMarcas() {
 }
 
 function cargarModelos(marca) {
+  console.log("cargar modelos");
   fetch(`https://ha-front-api-proyecto-final.vercel.app/models?brand=${marca}`)
     .then((response) => response.json())
     .then((data) => {
@@ -43,13 +46,14 @@ function cargarModelos(marca) {
 
 // Función para filtrar autos basados en los criterios seleccionados
 function filtrarAutos() {
+  console.log("filtrar autos");
   const anio = document.getElementById("anio").value;
   const marca = document.getElementById("marca").value;
   const modelo = document.getElementById("modelo").value;
-  const estado = document.getElementById("estado").value; // Capturar el estado
+  //const estado = document.getElementById("estado").value; // Capturar el estado
 
   fetch(
-    `https://ha-front-api-proyecto-final.vercel.app/cars?year=${anio}&brand=${marca}&model=${modelo}&estado=${estado}`
+    `https://ha-front-api-proyecto-final.vercel.app/cars?year=${anio}&brand=${marca}&model=${modelo}`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -62,9 +66,10 @@ function filtrarAutos() {
 }
 
 function mostrarAutos(autos) {
-  const contenedorAutos = document.querySelector(" .cards-list");
+  const contenedorAutos = document.querySelector(".cards-list");
   contenedorAutos.innerHTML = "";
 
+  console.log("mostrar autos");
   autos.forEach((auto) => {
     const card = document.createElement("div");
     card.className = "card mycard mb-4";
@@ -78,7 +83,7 @@ function mostrarAutos(autos) {
               <div class="card-body fs-6 custom-padding">
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="card-title mb-2">${auto.brand} ${auto.model}</h5>
-                  <small class="text-muted">${auto.year} | USD ${auto.price} | ${auto.estado}</small>
+                  <small class="text-muted">${auto.year} | USD ${auto.price}</small>
                 </div>
                 <p class="card-text">${auto.description}</p>
                 <button class="btn btn-success comprar">Comprar</button>
@@ -95,12 +100,14 @@ function mostrarAutos(autos) {
 }
 // Event listeners
 document.getElementById("marca").addEventListener("change", function () {
+  console.log("cargar modelos");
   cargarModelos(this.value);
 });
 
 document
   .querySelector(".btn-primary")
   .addEventListener("click", function (event) {
+    console.log("entra en el evento");
     event.preventDefault();
     filtrarAutos();
   });
