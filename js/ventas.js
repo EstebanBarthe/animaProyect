@@ -10,8 +10,6 @@ function cargarAnios() {
   }
 }
 
-cargarAnios();
-
 function cargarMarcas() {
   console.log("cargar marcas");
   fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
