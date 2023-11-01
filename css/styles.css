@@ -51,7 +51,10 @@ h6 {
 }
 
 .carouselImage {
-max-height: 444px;
+max-height: 75vh;
+max-width: 100%;
+background-position: center center;
+
 
 }
 
@@ -124,8 +127,9 @@ max-height: 444px;
     justify-content: center;
 
   }
+
   .container-1 {
-    margin-top: 5vw;
+    margin-top: 50vw;
   }
   .carousel-inner img {
       height: 64vw;
@@ -148,6 +152,8 @@ max-height: 444px;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  
 }
 
 
