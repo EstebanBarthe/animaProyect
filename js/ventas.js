@@ -78,6 +78,7 @@ function filtrarAutos() {
       if (data.length === 0) {
         contenedorAutos.innerHTML =
           "<p>No se encontraron resultados para los criterios seleccionados</p>";
+          alert ("No se encontraron resultados")
       } else {
         mostrarAutos(data);
       }
