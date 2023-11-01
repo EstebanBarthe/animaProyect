@@ -51,7 +51,8 @@ h6 {
 }
 
 .carouselImage {
-  max-height: 444px;
+max-height: 444px;
+
 }
 
 #home h1 span {
@@ -116,7 +117,7 @@ h6 {
   object-fit: cover;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .mycard {
     width: 80vw;
     display: block;
@@ -127,9 +128,18 @@ h6 {
     margin-top: 20vw;
   }
   .carousel-inner img {
-    max-height: 100vw;
-    max-width: 100vw;
-    display: block;
-    margin: 0;
+      height: 64vw;
+      object-fit: cover; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+    
+
   }
-}
+ }
+
+
+
+
+
