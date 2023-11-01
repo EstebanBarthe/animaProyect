@@ -344,7 +344,7 @@
               aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form action="https://formspree.io/f/xeqbdqlw" method="post">
               <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
                 <input
@@ -358,7 +358,7 @@
                 <label for="email" class="form-label">Email</label>
                 <input
                   type="email"
-                  name="email"
+                  name="_replyto"
                   value=""
                   class="form-control"
                   placeholder="Ingresar Email..." />
@@ -372,15 +372,10 @@
                   class="form-control"
                   placeholder="Ingresar mensaje..."></textarea>
               </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Enviar</button>
+              </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-success"
-              data-bs-dismiss="modal">
-              Enviar
-            </button>
           </div>
         </div>
       </div>

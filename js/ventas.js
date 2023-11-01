@@ -13,7 +13,7 @@ function cargarAnios() {
 cargarAnios();
 
 function cargarMarcas() {
-  console.log("cargar marcas")
+  console.log("cargar marcas");
   fetch("https://ha-front-api-proyecto-final.vercel.app/brands")
     .then((response) => response.json())
     .then((data) => {
@@ -43,7 +43,7 @@ function cargarModelos(marca) {
     });
 }
 
-// Función para filtrar autos basados en los criterios seleccionados
+
 function filtrarAutos() {
   console.log("filtrar autos");
   const anio = document.getElementById("anio").value;
@@ -51,15 +51,33 @@ function filtrarAutos() {
   const modelo = document.getElementById("modelo").value;
   const estado = document.getElementById("estado").value;
 
-  fetch(
-    `https://ha-front-api-proyecto-final.vercel.app/cars?year=${anio}&brand=${marca}&model=${modelo}&status=${estado}`
-  )
+  let url = `https://ha-front-api-proyecto-final.vercel.app/cars?`;
+
+  if (anio && anio !== "Seleccionar...") {
+    url += `year=${anio}&`;
+  }
+  if (marca && marca !== "Seleccionar...") {
+    url += `brand=${marca}&`;
+  }
+  if (modelo && modelo !== "Seleccionar...") {
+    url += `model=${modelo}&`;
+  }
+  if (estado && estado !== "Seleccionar...") {
+    url += `status=${estado}`;
+  }
+
+  if (url.endsWith('&')) {
+    url = url.slice(0, -1);
+  }
+
+  fetch(url)
     .then((response) => response.json())
     .then((data) => {
       const contenedorAutos = document.querySelector(".cards-list");
-      
+
       if (data.length === 0) {
-        contenedorAutos.innerHTML = '<p>No se encontraron resultados para los criterios seleccionados</p>';
+        contenedorAutos.innerHTML =
+          "<p>No se encontraron resultados para los criterios seleccionados</p>";
       } else {
         mostrarAutos(data);
       }
@@ -72,7 +90,7 @@ function cargarStatus() {
   const estadoSelect = document.getElementById("estado");
   const estados = [
     { id: 0, nombre: "Usado" },
-    { id: 1, nombre: "Nuevo" }
+    { id: 1, nombre: "Nuevo" },
   ];
   estados.forEach((estado) => {
     const option = document.createElement("option");
@@ -81,9 +99,6 @@ function cargarStatus() {
     estadoSelect.appendChild(option);
   });
 }
-
-
-
 
 function mostrarAutos(autos) {
   const contenedorAutos = document.querySelector(".cards-list");
@@ -97,13 +112,17 @@ function mostrarAutos(autos) {
     const cardContent = `
           <div class="row no-gutters">
             <div class="col-xl-4 col-md-12">
-              <img src="${auto.image}" class="card-img h-100 " alt="${auto.model}" style="background-size: cover" />
+              <img src="${auto.image}" class="card-img h-100 " alt="${
+      auto.model
+    }" style="background-size: cover" />
             </div>
             <div class="col-xl-8">
               <div class="card-body fs-6 custom-padding">
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="card-title mb-2">${auto.brand} ${auto.model}</h5>
-                  <small class="text-muted">${auto.year} | USD ${auto.price_usd} | ${auto.status === 1 ? 'Nuevo' : 'Usado'}</small>
+                  <small class="text-muted">${auto.year} | USD ${
+      auto.price_usd
+    } | ${auto.status === 1 ? "Nuevo" : "Usado"}</small>
                 </div>
                 <p class="card-text">${auto.description}</p>
                 <button class="btn btn-success comprar">Comprar</button>
