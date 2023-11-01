@@ -56,13 +56,16 @@ function filtrarAutos() {
   )
     .then((response) => response.json())
     .then((data) => {
+      const contenedorAutos = document.querySelector(".cards-list");
+      
       if (data.length === 0) {
-        alert("No hay autos que cumplan con las condiciones de filtrado.");
+        contenedorAutos.innerHTML = '<p>No se encontraron resultados para los criterios seleccionados</p>';
       } else {
         mostrarAutos(data);
       }
     });
 }
+
 
 function cargarStatus() {
   console.log("cargar estados");
