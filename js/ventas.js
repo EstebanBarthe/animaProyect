@@ -110,7 +110,7 @@ function mostrarAutos(autos) {
     card.className = "card mycard mb-4";
 
     const cardContent = `
-          <div class="row no-gutters">
+          <div class="row">
             <div class="col-xl-4 col-md-12">
               <img src="${auto.image}" class="card-img h-100 " alt="${
       auto.model

@@ -122,10 +122,10 @@ max-height: 444px;
     width: 80vw;
     display: block;
     justify-content: center;
-    text-align: center;
+
   }
   .container-1 {
-    margin-top: 20vw;
+    margin-top: 5vw;
   }
   .carousel-inner img {
       height: 64vw;
@@ -133,8 +133,6 @@ max-height: 444px;
       display: flex;
       align-items: center;
       justify-content: center;
-  
-    
 
   }
  }
@@ -145,6 +143,12 @@ max-height: 444px;
   overflow: hidden;
 }
 
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
