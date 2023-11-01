@@ -1,13 +1,12 @@
 // Función para cargar años en el select
 function cargarAnios() {
-  console.log("cargar anios")
+  console.log("cargar anios");
   const anioSelect = document.getElementById("anio");
-  for (let i = 1900; i <= 2023; i++) {
+  for (let i = 2023; i >= 1900; i--) {
     const option = document.createElement("option");
     option.value = i;
     option.textContent = i;
     anioSelect.appendChild(option);
-    
   }
 }
 
@@ -50,10 +49,10 @@ function filtrarAutos() {
   const anio = document.getElementById("anio").value;
   const marca = document.getElementById("marca").value;
   const modelo = document.getElementById("modelo").value;
-  //const estado = document.getElementById("estado").value; // Capturar el estado
+  const estado = document.getElementById("estado").value;
 
   fetch(
-    `https://ha-front-api-proyecto-final.vercel.app/cars?year=${anio}&brand=${marca}&model=${modelo}`
+    `https://ha-front-api-proyecto-final.vercel.app/cars?year=${anio}&brand=${marca}&model=${modelo}&status=${estado}`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -64,6 +63,24 @@ function filtrarAutos() {
       }
     });
 }
+
+function cargarStatus() {
+  console.log("cargar estados");
+  const estadoSelect = document.getElementById("estado");
+  const estados = [
+    { id: 0, nombre: "Usado" },
+    { id: 1, nombre: "Nuevo" }
+  ];
+  estados.forEach((estado) => {
+    const option = document.createElement("option");
+    option.value = estado.id;
+    option.textContent = estado.nombre;
+    estadoSelect.appendChild(option);
+  });
+}
+
+
+
 
 function mostrarAutos(autos) {
   const contenedorAutos = document.querySelector(".cards-list");
@@ -77,13 +94,13 @@ function mostrarAutos(autos) {
     const cardContent = `
           <div class="row no-gutters">
             <div class="col-xl-4 col-md-12">
-              <img src="${auto.image}" class="card-img h-100" alt="${auto.model}" />
+              <img src="${auto.image}" class="card-img h-100 " alt="${auto.model}" style="background-size: cover" />
             </div>
             <div class="col-xl-8">
               <div class="card-body fs-6 custom-padding">
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="card-title mb-2">${auto.brand} ${auto.model}</h5>
-                  <small class="text-muted">${auto.year} | USD ${auto.price}</small>
+                  <small class="text-muted">${auto.year} | USD ${auto.price_usd} | ${auto.status === 1 ? 'Nuevo' : 'Usado'}</small>
                 </div>
                 <p class="card-text">${auto.description}</p>
                 <button class="btn btn-success comprar">Comprar</button>
@@ -115,3 +132,4 @@ document
 // Llamadas iniciales
 cargarAnios();
 cargarMarcas();
+cargarStatus();
