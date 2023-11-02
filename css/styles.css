@@ -51,11 +51,9 @@ h6 {
 }
 
 .carouselImage {
-max-height: 75vh;
-max-width: 100%;
-background-position: center center;
-
-
+  max-height: 75vh;
+  max-width: 100%;
+  background-position: center center;
 }
 
 #home h1 span {
@@ -125,20 +123,17 @@ background-position: center center;
     width: 80vw;
     display: block;
     justify-content: center;
-
   }
 
   .container-1 {
     margin-top: 50vw;
   }
   .carousel-inner img {
-      height: 64vw;
-      object-fit: cover; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-
+    height: 64vw;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .cards-list {
     display: flex;
@@ -146,17 +141,10 @@ background-position: center center;
     align-items: center;
     justify-content: center;
   }
- }
- .card-text {
+}
+.card-text {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
-  
 }
-
-
-
-
-

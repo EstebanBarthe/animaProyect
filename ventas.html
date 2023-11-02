@@ -11,6 +11,9 @@
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
     <!-- CSS Font Awesome -->
 
@@ -112,13 +115,18 @@
           </div>
 
           <div class="mb-3">
+            <label for="rating" class="form-label">Popularidad</label>
+            <select class="form-select" id="rating"></select>
+          </div>
+
+          <div class="mb-3">
             <button class="btn btn-primary w-100">Filtrar</button>
           </div>
         </form>
 
         <div class="col-xl-10 cards-list">
           <div class="card mycard mb-4">
-            <div class="row ">
+            <div class="row">
               <div class="col-xl-4 col-md-12">
                 <img
                   src="img/cars_sales/audi_q5_2017.jpg"
@@ -129,11 +137,9 @@
                 <div class="card-body fs-6 custom-padding">
                   <div
                     class="d-flex justify-content-between align-items-center">
-                    <!-- Añadido este div con clases de flexbox -->
                     <h5 class="card-title mb-2">Audi Q5</h5>
-                    <!-- Eliminado el small de aquí -->
-                    <small class="text-muted">2017 | USD 92.000 | Nuevo</small>
-                    <!-- Movido el small fuera del h5 -->
+
+                    <small class="text-muted">2017 | USD 92.000 | Nuevo </small>
                   </div>
                   <p class="card-text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -154,7 +160,7 @@
           </div>
 
           <div class="card mb-4 mycard">
-            <div class="row ">
+            <div class="row">
               <div class="col-xl-4 col-md-12">
                 <img
                   src="img/cars_sales/audi_q7_2017.jpg"

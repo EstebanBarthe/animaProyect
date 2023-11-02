@@ -41,13 +41,13 @@ function cargarModelos(marca) {
     });
 }
 
-
 function filtrarAutos() {
   console.log("filtrar autos");
   const anio = document.getElementById("anio").value;
   const marca = document.getElementById("marca").value;
   const modelo = document.getElementById("modelo").value;
   const estado = document.getElementById("estado").value;
+  const rating = document.getElementById("rating").value;
 
   let url = `https://ha-front-api-proyecto-final.vercel.app/cars?`;
 
@@ -64,25 +64,27 @@ function filtrarAutos() {
     url += `status=${estado}`;
   }
 
-  if (url.endsWith('&')) {
+  if (url.endsWith("&")) {
     url = url.slice(0, -1);
   }
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      if (rating && rating !== "Seleccionar...") {
+        data = data.filter((auto) => auto.rating == rating);
+      }
       const contenedorAutos = document.querySelector(".cards-list");
 
       if (data.length === 0) {
         contenedorAutos.innerHTML =
           "<p>No se encontraron resultados para los criterios seleccionados</p>";
-          alert ("No se encontraron resultados")
+        alert("No se encontraron resultados");
       } else {
         mostrarAutos(data);
       }
     });
 }
-
 
 function cargarStatus() {
   console.log("cargar estados");
@@ -99,15 +101,37 @@ function cargarStatus() {
   });
 }
 
+function cargarRatings() {
+  console.log("cargar ratings");
+  const ratingSelect = document.getElementById("rating");
+  const defaultOption = document.createElement("option");
+  defaultOption.textContent = "Seleccionar...";
+  ratingSelect.appendChild(defaultOption);
+
+  for (let i = 1; i <= 5; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = `${i} Estrella${i > 1 ? "s" : ""}`;
+    ratingSelect.appendChild(option);
+  }
+}
+
+function getRatingStarts(rating) {
+  let stars = "";
+  for (let i = 0; i < rating; i++) {
+    stars += '<i class="bi bi-star-fill" style="color: gold;"></i>';
+  }
+  return stars;
+}
+
 function mostrarAutos(autos) {
   const contenedorAutos = document.querySelector(".cards-list");
   contenedorAutos.innerHTML = "";
 
-  console.log("mostrar autos");
   autos.forEach((auto) => {
     const card = document.createElement("div");
     card.className = "card mycard mb-4";
-
+    const stars = getRatingStarts(auto.rating);
     const cardContent = `
           <div class="row">
             <div class="col-xl-4 col-md-12">
@@ -121,7 +145,7 @@ function mostrarAutos(autos) {
                   <h5 class="card-title mb-2">${auto.brand} ${auto.model}</h5>
                   <small class="text-muted">${auto.year} | USD ${
       auto.price_usd
-    } | ${auto.status === 1 ? "Nuevo" : "Usado"}</small>
+    } | ${auto.status === 1 ? "Nuevo" : "Usado"} |${stars}</small>
                 </div>
                 <p class="card-text">${auto.description}</p>
                 <button class="btn btn-success comprar">Comprar</button>
@@ -136,6 +160,7 @@ function mostrarAutos(autos) {
     contenedorAutos.appendChild(card);
   });
 }
+
 // Event listeners
 document.getElementById("marca").addEventListener("change", function () {
   console.log("cargar modelos");
@@ -154,3 +179,4 @@ document
 cargarAnios();
 cargarMarcas();
 cargarStatus();
+cargarRatings();
