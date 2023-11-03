@@ -183,67 +183,67 @@
 
       <div class="container container-1">
         <div class="col-12">
-        <h1 class="page-header">
-          Bienvenido a <span>AUTO</span><strong>VIP</strong>
-        </h1>
+          <h1 class="page-header">
+            Bienvenido a <span>AUTO</span><strong>VIP</strong>
+          </h1>
 
-        <hr />
+          <hr />
 
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-3">
-              <div class="card-header">
-                <h4><i class="fas fa-car"></i> Venta de 0km</h4>
-              </div>
-              <div class="card-body">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Itaque, optio corporis quae nulla aspernatur in alias at
-                  numquam rerum ea excepturi expedita tenetur assumenda
-                  voluptatibus eveniet.
-                </p>
-                <a href="ventas.html" class="btn btn-outline-secondary"
-                  >Ver autos</a
-                >
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h4><i class="fas fa-car"></i> Venta de 0km</h4>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Itaque, optio corporis quae nulla aspernatur in alias at
+                    numquam rerum ea excepturi expedita tenetur assumenda
+                    voluptatibus eveniet.
+                  </p>
+                  <a href="ventas.html" class="btn btn-outline-secondary"
+                    >Ver autos</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-3">
-              <div class="card-header">
-                <h4><i class="fas fa-bullhorn"></i> Venta de Usados</h4>
-              </div>
-              <div class="card-body">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Itaque, optio corporis quae nulla aspernatur in alias at
-                  numquam rerum ea excepturi expedita tenetur assumenda
-                  voluptatibus eveniet.
-                </p>
-                <a href="ventas.html" class="btn btn-outline-secondary"
-                  >Ver autos</a
-                >
+            <div class="col-md-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h4><i class="fas fa-bullhorn"></i> Venta de Usados</h4>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Itaque, optio corporis quae nulla aspernatur in alias at
+                    numquam rerum ea excepturi expedita tenetur assumenda
+                    voluptatibus eveniet.
+                  </p>
+                  <a href="ventas.html" class="btn btn-outline-secondary"
+                    >Ver autos</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-3">
-              <div class="card-header">
-                <h4><i class="far fa-file-alt"></i> Trámites</h4>
-              </div>
-              <div class="card-body">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Itaque, optio corporis quae nulla aspernatur in alias at
-                  numquam rerum ea excepturi expedita tenetur assumenda
-                  voluptatibus eveniet.
-                </p>
-                <a href="#" class="btn btn-outline-secondary">Ver trámites</a>
+            <div class="col-md-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h4><i class="far fa-file-alt"></i> Trámites</h4>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Itaque, optio corporis quae nulla aspernatur in alias at
+                    numquam rerum ea excepturi expedita tenetur assumenda
+                    voluptatibus eveniet.
+                  </p>
+                  <a href="#" class="btn btn-outline-secondary">Ver trámites</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
 
@@ -322,6 +322,32 @@
                   placeholder="Ingresar Email..." />
               </div>
               <div class="mb-3">
+                <label for="contact-reason" class="form-label"
+                  >Razón de contacto</label
+                >
+                <select
+                  id="contact-reason"
+                  name="contact_reason"
+                  class="form-control"
+                  placeholder="Elige una opción">
+                  <option value="select">Seleccionar...</option>
+                  <option value="Compra">Compra</option>
+                  <option value="Trabajo">Trabaja con Nosotros</option>
+                  <option value="Informacion">Información</option>
+                </select>
+              </div>
+              <div class="mb-3 d-none" id="file-upload-container">
+                <label for="file-upload" class="form-label"
+                  >Subir CV (PDF)</label
+                >
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="file-upload"
+                  class="form-control"
+                  accept=".pdf" />
+              </div>
+              <div class="mb-3">
                 <label for="message" class="form-label">Mensaje</label>
                 <textarea
                   name="message"
@@ -338,7 +364,6 @@
         </div>
       </div>
     </div>
-
     <!-- Boostrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

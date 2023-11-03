@@ -84,7 +84,7 @@
         <h1>Ventas</h1>
 
         <hr />
-        <form class="col-xl-2 bg-light rounded form-section h-100">
+        <form class="col-xl-2 bg-light rounded form-section h-100 mb-sm-4 ">
           <h4 class="mt-2">Filtro</h4>
           <hr />
           <div class="mb-3">
@@ -121,7 +121,7 @@
           </div>
 
           <div class="mb-3">
-            <button class="btn btn-primary w-100">Filtrar</button>
+            <button class="btn btn-warning w-100 text-light"><i class="bi bi-search"></i> Filtrar</button>
           </div>
         </form>
 
@@ -205,13 +205,26 @@
                   placeholder="Ingresar Email..." />
               </div>
               <div class="mb-3">
-                <label for="email" class="form-label">Razon de contacto </label>
-                <input
-                  type="email"
-                  name="_replyto"
-                  value=""
+                <label for="contact-reason" class="form-label">Razón de contacto</label>
+                <select
+                  id="contact-reason"
+                  name="contact_reason"
                   class="form-control"
-                  placeholder="Ingresar Email..." />
+                  placeholder="Elige una opción">
+                  <option value="select">Seleccionar...</option>
+                  <option value="Compra">Compra</option>
+                  <option value="Trabajo">Trabaja con Nosotros</option>
+                  <option value="Informacion">Información</option>
+                </select>
+              </div>
+              <div class="mb-3 d-none" id="file-upload-container">
+                <label for="file-upload" class="form-label">Subir CV (PDF)</label>
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="file-upload"
+                  class="form-control"
+                  accept=".pdf">
               </div>
               <div class="mb-3">
                 <label for="message" class="form-label">Mensaje</label>

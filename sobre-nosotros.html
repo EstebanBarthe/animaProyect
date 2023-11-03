@@ -352,6 +352,28 @@
                   placeholder="Ingresar Email..." />
               </div>
               <div class="mb-3">
+                <label for="contact-reason" class="form-label">Razón de contacto</label>
+                <select
+                  id="contact-reason"
+                  name="contact_reason"
+                  class="form-control"
+                  placeholder="Elige una opción">
+                  <option value="select">Seleccionar...</option>
+                  <option value="Compra">Compra</option>
+                  <option value="Trabajo">Trabaja con Nosotros</option>
+                  <option value="Informacion">Información</option>
+                </select>
+              </div>
+              <div class="mb-3 d-none" id="file-upload-container">
+                <label for="file-upload" class="form-label">Subir CV (PDF)</label>
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="file-upload"
+                  class="form-control"
+                  accept=".pdf">
+              </div>
+              <div class="mb-3">
                 <label for="message" class="form-label">Mensaje</label>
                 <textarea
                   name="message"

@@ -121,7 +121,7 @@ function mostrarAutos(autos) {
               <img src="${auto.image}" class="card-img h-100 " alt="${
       auto.model
     }" style="background-size: cover" />
-              <button class="btn position-absolute top-0 t-white start-0" style="background-color: ${statusColor}; color: white;">${
+              <button class="btn position-absolute top-0 text-white start-0" style="background-color: ${statusColor};">${
       auto.status === 1 ? "Nuevo" : "Usado"
     }</button>
             </div>
@@ -134,9 +134,10 @@ function mostrarAutos(autos) {
                   } | USD ${formattedPrice} | ${stars}</small>
                 </div>
                 <p class="card-text">${auto.description}</p>
-                <button class="btn btn-success comprar"><i class="bi bi-cart-plus"></i> Comprar</button>
-                <button class="btn btn-light border-dark info"><i class="bi bi-plus-square"></i> Más información</button>
+                <button class="btn btn-success comprar" data-bs-toggle="modal" data-bs-target="#contacto-modal"><i class="bi bi-cart-plus"></i> Comprar</button>
+                <button class="btn btn-light border-dark info" data-bs-toggle="modal" data-bs-target="#contacto-modal"><i class="bi bi-plus-square"></i> Más información</button>
                 <button class="btn btn-light border-dark compartir"><i class="bi bi-share"></i> Compartir</button>
+                
               </div>
             </div>
           </div>
@@ -144,6 +145,18 @@ function mostrarAutos(autos) {
 
     card.innerHTML = cardContent;
     contenedorAutos.appendChild(card);
+    card.querySelector(".comprar").addEventListener("click", function () {
+      const selectContactReason = document.querySelector(
+        '#contacto-modal select[name="contact_reason"]'
+      );
+      selectContactReason.value = "Compra";
+    });
+    card.querySelector(".info").addEventListener("click", function () {
+      const selectContactReason = document.querySelector(
+        '#contacto-modal select[name="contact_reason"]'
+      );
+      selectContactReason.value = "Informacion";
+    });
   });
 }
 
@@ -199,12 +212,25 @@ document.getElementById("marca").addEventListener("change", function () {
 });
 
 document
-  .querySelector(".btn-primary")
+  .querySelector(".btn-warning")
   .addEventListener("click", function (event) {
     console.log("entra en el evento");
     event.preventDefault();
     filtrarAutos();
   });
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  const contactReasonSelect = document.getElementById("contact-reason");
+  const fileUploadContainer = document.getElementById("file-upload-container");
+
+  contactReasonSelect.addEventListener("change", (event) => {
+    if (event.target.value === "Trabajo") {
+      fileUploadContainer.classList.remove("d-none");
+    } else {
+      fileUploadContainer.classList.add("d-none");
+    }
+  });
+});
 
 // Llamadas iniciales
 cargarAnios();
