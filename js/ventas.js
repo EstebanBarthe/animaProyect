@@ -56,6 +56,21 @@ function cargarStatus() {
   });
 }
 
+/*function cargarRatings() {
+  console.log("cargar ratings");
+  const ratingSelect = document.getElementById("rating");
+  const defaultOption = document.createElement("option");
+  defaultOption.textContent = "Seleccionar...";
+  ratingSelect.appendChild(defaultOption);
+
+  for (let i = 1; i <= 5; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = `${i} Estrella${i > 1 ? "s" : ""}`;
+    ratingSelect.appendChild(option);
+  }
+}*/
+
 function cargarRatings() {
   console.log("cargar ratings");
   const ratingSelect = document.getElementById("rating");
