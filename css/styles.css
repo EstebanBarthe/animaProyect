@@ -1,5 +1,4 @@
-/* Mi código CSS */
-
+/* Estilos generales */
 body {
   padding-top: 60px;
   min-height: 100vh;
@@ -16,12 +15,18 @@ h6 {
   font-family: "Lato", sans-serif;
 }
 
-/*****************************************************************
+.object-fit-cover {
+  object-fit: cover;
+}
 
-    HEADER
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-/*****************************************************************/
-
+/* HEADER */
 #header {
   background-color: #222;
   border-bottom: 4px solid #ff8f00;
@@ -32,12 +37,7 @@ h6 {
   height: 20px;
 }
 
-/*****************************************************************
-
-    HOME
-
-/*****************************************************************/
-
+/* HOME */
 #home {
   flex: 1;
 }
@@ -69,21 +69,7 @@ h6 {
   margin: 1.9rem 0 2.5rem;
 }
 
-@media (max-width: 767px) {
-  #home-intro {
-    height: 30vh;
-  }
-  #home h1 {
-    font-size: 1.8rem;
-  }
-}
-
-/*****************************************************************
-
-    FOOTER
-
-/*****************************************************************/
-
+/* FOOTER */
 #footer {
   border-top: 4px solid #ff8f00;
   background-color: #222;
@@ -114,8 +100,15 @@ h6 {
   color: #eeeeee;
   text-decoration: none;
 }
-.object-fit-cover {
-  object-fit: cover;
+
+/* Media Queries */
+@media (max-width: 767px) {
+  #home-intro {
+    height: 30vh;
+  }
+  #home h1 {
+    font-size: 1.8rem;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -128,6 +121,7 @@ h6 {
   .container-1 {
     margin-top: 50vw;
   }
+
   .carousel-inner img {
     height: 64vw;
     object-fit: cover;
@@ -135,16 +129,11 @@ h6 {
     align-items: center;
     justify-content: center;
   }
+
   .cards-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-}
-.card-text {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
