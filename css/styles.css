@@ -119,7 +119,7 @@ h6 {
   }
 
   .container-1 {
-    margin-top: 50vw;
+    margin-top: 40vw;
   }
 
   .carousel-inner img {
@@ -136,4 +136,10 @@ h6 {
     align-items: center;
     justify-content: center;
   }
+}
+
+@media (max-width: 400px) {
+    .container-1{
+      margin-top: 0 !important;
+    }
 }
