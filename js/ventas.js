@@ -118,20 +118,17 @@ function mostrarAutos(autos) {
     const cardContent = `
           <div class="row">
             <div class="col-xl-4 col-md-12 position-relative">
-              <img src="${auto.image}" class="card-img h-100 " alt="${
-      auto.model
-    }" style="background-size: cover" />
-              <button class="btn position-absolute top-0 text-white start-0" style="background-color: ${statusColor};">${
-      auto.status === 1 ? "Nuevo" : "Usado"
-    }</button>
+            <span class="badge rounded-pill position-absolute mt-2 ms-2" style="background-color: ${statusColor};">${
+              auto.status === 1 ? "Nuevo" : "Usado"
+              }</span>
+              <img src="${auto.image}" class="card-img h-100 " alt="${auto.model}" style="background-size: cover" />             
+    
             </div>
             <div class="col-xl-8">
               <div class="card-body fs-6 custom-padding">
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="card-title mb-2">${auto.brand} ${auto.model}</h5>
-                  <small class="text-muted">${
-                    auto.year
-                  } | USD ${formattedPrice} | ${stars}</small>
+                  <small class="text-muted">${auto.year} | USD ${formattedPrice} | ${stars}</small>
                 </div>
                 <p class="card-text">${auto.description}</p>
                 <button class="btn btn-success comprar" data-bs-toggle="modal" data-bs-target="#contacto-modal"><i class="bi bi-cart-plus"></i> Comprar</button>
