@@ -63,6 +63,22 @@ function cargarAutosIniciales() {
     });
 }
 
+function cargarStatus() {
+  console.log("cargar estados");
+  const estadoSelect = document.getElementById("estado");
+  const estados = [
+    { id: 0, nombre: "Usado" },
+    { id: 1, nombre: "Nuevo" }
+  ];
+  estados.forEach((estado) => {
+    const option = document.createElement("option");
+    option.value = estado.id;
+    option.textContent = estado.nombre;
+    estadoSelect.appendChild(option);
+  });
+}
+
+
 // Funciones de utilidad
 function getRatingStarts(rating) {
   let stars = "";
@@ -207,4 +223,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
 cargarAnios();
 cargarMarcas();
 cargarRatings();
+cargarStatus();
 cargarAutosIniciales();
